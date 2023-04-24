@@ -34,29 +34,32 @@ public class Main {
     public static void task3() {
         System.out.println("Задача 3");
         int peopleInTheCountry = 12_000_000;
-        int peopleBorn = 17;
-        int peopleDeath = 8;
-        for (int n = 5; n <= 10; n++){
-            peopleBorn = peopleInTheCountry / peopleBorn;
-            peopleInTheCountry = peopleInTheCountry + peopleBorn - peopleDeath;
+        int replenishmentOfThePopulation = 0;
+        for (int n = 1; n <= 10; n++){
+            int peopleBorn = peopleInTheCountry / 1000 * 17;
+            int peopleDeath = peopleInTheCountry / 1000 * 8;
+            replenishmentOfThePopulation = peopleBorn - peopleDeath;
+            peopleInTheCountry = peopleInTheCountry + replenishmentOfThePopulation;
             System.out.println("Год " + n + " ,численость население составляет " + peopleInTheCountry);
         }
     }
     public static void task4() {
         System.out.println("Задача 4");
         int salary = 15000;
+        int percent = 7;
         int mounth = 0;
         while (salary < 12_000_000) {
             mounth = mounth + 1;
-            salary = salary + salary / 7;
+            salary += salary * percent / 100;
             System.out.println("Месяц " + mounth + ", сумма накоплений равна " + salary + " рублей");
             }
     }
     public static void task5() {
         System.out.println("Задача 5");
         int salary = 15000;
+        int percent = 7;
         for (int n = 1; salary < 12_000_000; n++) {
-            salary = salary + salary / 7;
+            salary += salary * percent / 100;
             if (n % 6 == 0) {
                 System.out.println("Месяц " + n + ", сумма накоплений равна " + salary + " рублей");
             }
@@ -68,7 +71,7 @@ public class Main {
         int percent = 7;
         int mount = 1;
         int years = 9;
-        while (mount < years * 12){
+        while (mount <= years * 12){
             salary += salary * percent / 100;
             if (mount % 6 == 0) {
                 System.out.println(String.format("Месяц %s, сумма накоплений составляет %s", mount, salary));
@@ -81,7 +84,7 @@ public class Main {
         int friday = 5;
         int dayInMount = 31;
         int dayInWeek = 7;
-        for (int n = friday; n < dayInMount; n += dayInWeek){
+        for (int n = friday; n <= dayInMount; n += dayInWeek){
             System.out.println(String.format("Сегодня пятница, %s-е число. Необходимо подготовить отчет", n));
         }
     }
